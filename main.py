@@ -6,7 +6,7 @@ app = QApplication(sys.argv)
 
 # Create a main window
 window = QWidget()
-window.setWindowTitle('Simple PyQt Window')
+window.setWindowTitle('GreenPY')
 
 
 label = QLabel('Hello, PyQt!')
