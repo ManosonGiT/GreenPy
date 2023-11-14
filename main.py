@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenuBar, QMenu, QAction, QDesktopWidget, QFileDialog, \
     QMessageBox, QToolBar, QPushButton, QTextEdit
-
+from backend import analyze_code
 
 class MyWindow(QMainWindow):
     def __init__(self):
@@ -28,8 +28,9 @@ class MyWindow(QMainWindow):
         self.addToolBar(toolbar)
 
         # Add  button to the toolbar
-        square_button1 = QPushButton('Analyze code', self)
-        toolbar.addWidget(square_button1)
+        analyze_button = QPushButton('Analyze Code', self)
+        analyze_button.clicked.connect(self.analyze_code_button_clicked)
+        toolbar.addWidget(analyze_button)
 
         self.editor = QTextEdit(self)
         self.setCentralWidget(self.editor)
@@ -63,6 +64,10 @@ class MyWindow(QMainWindow):
     def load_file(self, file_path):
         with open(file_path, 'r') as file:
             self.editor.setPlainText(file.read())
+
+    def analyze_code_button_clicked(self):
+        code = self.editor.toPlainText()
+        analyze_code(code)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
