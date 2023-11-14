@@ -9,7 +9,7 @@ class MyWindow(QMainWindow):
 
         # Set window size
         self.resize(800, 600)  # (x, y, width, height)
-        self.setWindowTitle('My PyQt5 Window')
+        self.setWindowTitle('GreenPy Editor')
         self.center()
 
         # Create menu bar
