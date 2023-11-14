@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenuBar, QMenu, QAction, QDesktopWidget, QFileDialog, \
-    QMessageBox
+    QMessageBox, QToolBar, QPushButton, QTextEdit
 
 
 class MyWindow(QMainWindow):
@@ -23,6 +23,16 @@ class MyWindow(QMainWindow):
         file_menu.addAction(open_action)
         open_action.triggered.connect(self.open_file_dialog)
 
+        #
+        toolbar = QToolBar("My Toolbar")
+        self.addToolBar(toolbar)
+
+        # Add  button to the toolbar
+        square_button1 = QPushButton('Analyze code', self)
+        toolbar.addWidget(square_button1)
+
+        self.editor = QTextEdit(self)
+        self.setCentralWidget(self.editor)
 
         #Exit menu button
         exit_action=QAction('Exit',self)
@@ -47,9 +57,12 @@ class MyWindow(QMainWindow):
             if file_name[-3:] != '.py':
                 QMessageBox.warning(self, 'Warning', 'Invalid file type selected. Please choose a valid file type.')
                 return None
-            return file_name
+            else:
+                self.load_file(file_name)
 
-
+    def load_file(self, file_path):
+        with open(file_path, 'r') as file:
+            self.editor.setPlainText(file.read())
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
