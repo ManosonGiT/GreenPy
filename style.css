@@ -1,0 +1,44 @@
+/* Style pour QMainWindow */
+QMainWindow {
+    background-color: #ecf0f1;
+    color: #000000;
+    font-size: 12pt;
+}
+
+/* Style pour QPushButton */
+QPushButton {
+    background-color: #2ecc71;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Style pour QTextEdit */
+QTextEdit {
+    background-color: white;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+/* Style pour QFileDialog */
+QFileDialog {
+    background-color: #ecf0f1;
+    color: #000000;
+}
+
+QFileDialog QLabel {
+    color: #000000;
+}
+
+QFileDialog QPushButton {
+    background-color: #2ecc71;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+}
+
+QFileDialog QPushButton:hover {
+    background-color: #000000;
+}
