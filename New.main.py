@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtGui import QIcon
 
-from backend import analyze_code
+from new.backend import analyze_code
 
 class MyWindow(QMainWindow):
     def __init__(self):
